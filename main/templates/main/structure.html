@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Структура{% endblock %}
+{% block content %}
+<p style="white-space: pre-line; font-size: 17px; margin-left: 5px;">«Я предпочел бы получать доход 1% от усилий ста человек, чем 100% от своих собственных усилий» - Джон Рокфеллер
+
+В этом разделе отображается полезная информация по вашей структуре, которая выстраивается благодаря вашим рекомендациям и рекламным кампаниям.
+
+В системе вознаграждения Stakelex используется многоуровневая реферальная программа. В целях конфиденциальности, контакты отображаются только вашей первой линии, то есть партнёров, которые зарегистрировались по вашей реферальной ссылке.
+
+Поддерживайте своих новых партнёров необходимой информацией, делитесь опытом и результатами. Stakelex - бизнес рекомендаций.</p>
+<div class="card-footer" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: #f7f7f7">
+  <div class="row">
+    <div class="col-sm-3 col-6">
+      <div class="description-block border-right">
+        <h5 class="description-header">{{registers}}</h5>
+        <span class="description-text">РЕГИСТРАЦИЙ В STAKELEX</span>
+      </div>
+    </div>
+    <div class="col-sm-3 col-6">
+      <div class="description-block border-right">
+        <h5 class="description-header">{{countries}}</h5>
+        <span class="description-text">СТРАН В МОЕЙ ГРУППЕ</span>
+      </div>
+    </div>
+    <div class="col-sm-3 col-6">
+      <div class="description-block border-right">
+        <h5 class="description-header">{{first_level}}</h5>
+        <span class="description-text">РЕГИСТРАЦИЙ НА ПЕРВОМ УРОВНЕ</span>
+      </div>
+    </div>
+    <div class="col-sm-3 col-6">
+      <div class="description-block border-right">
+        <h5 class="description-header">{{group}}</h5>
+        <span class="description-text">РЕГИСТРАЦИЙ В ГРУППЕ</span>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="card">
+	<div class="card-header">
+		<h3 class="card-title">1 линия</h3>
+		<div class="card-tools">
+			<div class="input-group input-group-sm" style="width: 150px;">
+				<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+				<div class="input-group-append">
+					<button type="submit" class="btn btn-default">
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.card-header -->
+	<div class="card-body table-responsive p-0" style="height: 300px;">
+		<table class="table table-head-fixed text-nowrap">
+			<thead>
+				<tr>
+					<th>Email</th>
+					<th>Дата регистрации</th>
+					<th>Страна</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for referal in line1 %}
+				<tr>
+					<td><a href="mailto:{{referal.email}}">{{referal.email}}</a></td>
+					<td>{{referal.register_date.date|date:"d.m.Y"}}</td>
+					<td>{{referal.country_code}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% if line1|length == 0%}
+		<h3 class="text-center" style="margin-top: 100px;">У вас еще нет рефералов</h3>
+		{% endif %}
+	</div>
+</div>
+<br>
+{% endblock %}

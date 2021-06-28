@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Поддержка{% endblock %}
+{% block content %}
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<div class="card">
+	<div class="card-body row">
+		<div class="col-md-5 col-lg-5 col-sm-12 text-center d-flex align-items-center justify-content-center">
+			<div class="">
+				<h2><strong>STAKELEX</strong></h2>
+				<p class="lead mb-5">123 Testing Ave, Testtown, 9876 NA
+					<br> Phone: +1 234 56789012
+				</p>
+			</div>
+		</div>
+		<div class="col-md-7 col-lg-7 col-sm-12">
+			<form action="." method="POST" id="myform">
+				<div class="form-group">
+					<label for="inputName">Имя</label>
+					{{form.name}}
+				</div>
+				<div class="form-group">
+					<label for="inputSubject">Тема</label>
+					{{form.subject}}
+				</div>
+				<div class="form-group">
+					<label for="inputMessage">Сообщение</label>
+					{{form.message}}
+				</div>
+				<div class="form-group">
+					{% csrf_token %}
+					<input type='submit' id="send_button" class="btn btn-primary" value="Отправить" data-toggle="modal" data-target="">
+				</div>
+
+				<div class="modal fade" id="modal-danger">
+					<div class="modal-dialog">
+						<div class="modal-content bg-danger">
+							<div class="modal-header">
+								<h4 class="modal-title">Не все поля заполнены</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>Заполните все поля, чтобы отправить сообщение</p>
+							</div>
+							<div class="modal-footer justify-content-between">
+								<button type="button" class="btn btn-outline-light" data-dismiss="modal">Закрыть</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+
+				<div class="modal fade" id="modal-default">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Отправка сообщения</h4>
+							</div>
+							<div class="modal-body">
+								<p>Ответ придет на почту {{profile.email}}</p>
+							</div>
+							<div class="modal-footer justify-content-between">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+								<button type="submit" class="btn btn-primary">Отправить сообщение</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+  var send_button = document.getElementById("send_button");
+  var name = document.getElementById("inputName");
+  var subject = document.getElementById("inputSubject");
+  var message = document.getElementById("inputMessage");
+
+  send_button.addEventListener("click", function(event) {
+  	if (name.value != "" && subject.value != "" && message.value != "") {
+  		send_button.setAttribute("data-target", "#modal-default");
+  		form = document.getElementById("myform");
+  	}
+
+  	else {
+  		send_button.setAttribute("data-target", "#modal-danger");
+  	}
+    event.preventDefault();
+  });
+</script>
+
+<script src="{% static 'plugins/sweetalert2/sweetalert2.min.js' %}"></script>
+<script src="{% static 'plugins/toastr/toastr.min.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Банки{% endblock %}
+{% block content %}
+<div class="card card-solid">
+	<div class="card-body pb-0">
+		<div class="row d-flex align-items-stretch">
+			{% for bank in banks %}
+			<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch bank-block">
+				<div class="card bg-light" style="width: 100%">
+					<div class="card-header text-muted border-bottom-0">
+					</div>
+					<div class="card-body pt-0">
+						<div class="row">
+							<div class="col-7">
+								<h2 class="lead"><b>{{bank.name}}</b></h2>
+								<p class="text-muted text-sm"><b>Виды кредитования:</b>
+									<br>
+									{% for category in bank.categories %}
+									{% if forloop.counter == bank.categories|length %}
+									{{category}}
+									{% else %}
+									{{category}}
+									<br>
+									{% endif %}
+									{% endfor %}
+								</p>
+							</div>
+							<div class="col-5 text-center">
+								<img src="{{bank.photo.url}}" alt="bank-logo" class="img-square img-fluid" style="height: auto;">
+							</div>
+						</div>
+					</div>
+					<div class="card-footer">
+						<div class="text-right">
+							<a href="{{bank.link}}" class="btn btn-sm bg-teal" target="blank">
+								Перейти в банк
+							</a>
+							<a href="/bank/{{bank.name}}/" class="btn btn-sm btn-primary">
+								Подробнее
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+<br>
+{% endblock %}

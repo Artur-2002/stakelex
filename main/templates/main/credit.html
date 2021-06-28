@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Кредитование{% endblock %}
+{% block content %}
+<p style="white-space: pre-line; font-size: 17px; margin-left: 5px;">Stakelex меняет взгляд на получение кредита. Инвестиции в личное финансовое развитие и новый взгляд на культуру сознательного кредитования, ведет к улучшению жизни и развитию бизнеса.
+
+Кредит, как неотъемлемая часть финансовой культуры, и в части случаев - это резонное решение, сулящее разумный выход из ситуации и даже прибыль. 
+
+Консервативная позиция: "Никаких кредитов. Использовать только собственные средства"
+Это хорошо для финансовой устойчивости, но иногда может стать сдерживающим фактором для роста.
+
+Более зрелая позиция заключается в том, что кредит - это один из финансовых инструментов, который при учете ряда ограничений, может принести положительный эффект.
+
+Stakelex ни в коем случае не побуждает и не призывает кого бы то ни было брать кредит. 
+
+Важно понять, что кредит вам действительно нужен и что он вам поможет наладить финансовую ситуацию. Трезво оценивайте свои возможности, занимайте ответственно!
+
+Используя инновационные решения в сфере услуг кредитования, Stakelex стремится снизить стоимость кредитов для потребителей и стимулировать их к расширению бизнеса.</p>
+<script>
+	function redirect() {
+	    var ref = document.getElementsByClassName("select2-selection__rendered")[0].innerHTML
+	    var ref2 = document.getElementsByClassName("select2-selection__rendered")[1].innerHTML
+
+	    if (ref == "Все страны") {
+	    	ref = "all";
+	    }
+
+	    if (ref2 == "Все виды кредитования") {
+	    	ref2 = "all";
+	    }
+
+	    document.location.href = document.location.href  + ref + "/" + ref2;
+	}
+</script>
+<div class="card card-default">
+	<div class="card-header">
+		<h3 class="card-title" style="text-align: center;">Выберите страну и вид кредитования</h3>
+	</div>
+	<div class="card-body">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<select class="form-control select2" style="width: 100%;">
+						<option selected="selected">Все страны</option>
+						{% for country in countries %}
+						<option>{{country}}</option>
+						{% endfor %}
+					</select>
+					<br>
+					<select class="form-control select2" style="width: 100%;">
+						<option selected="selected">Все виды кредитования</option>
+						{% for credit_type in credit_types %}
+						<option>{{credit_type}}</option>
+						{% endfor %}
+					</select>
+					<br>
+					<a href="javascript: redirect();">
+						<input type="submit" class="btn btn-success float-left" value="Начать поиск" name="submit" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+{% endblock %}

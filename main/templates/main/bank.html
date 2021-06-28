@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+<div class="card card-solid">
+	<div class="card-body">
+		<div class="row">
+			<div class="col-12 col-sm-6">
+				<div class="col-12">
+					<img src="{{bank.photo.url}}" class="product-image" alt="Product Image">
+				</div>
+			</div>
+			<div class="col-12 col-sm-6">
+				<h3 class="my-3">{{bank.name}}</h3>
+				<p style="white-space: pre-line;">{{bank.description}}</p>
+				<hr>
+				<h4 class="mt-3">Виды кредитования:</h4>
+				<ul style="list-style-type: none;">
+					{% for category in bank.categories %}
+					<li style="font-size: 18px;">{{category}}</li>
+					{% endfor %}
+				</ul>
+				<hr>
+				<div class="mt-4">
+					<div class="btn btn-primary btn-lg btn-flat">
+						<a href="{{bank.link}}" style="color: white">Перейти в банк</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.card-body -->
+</div>
+{% endblock %}

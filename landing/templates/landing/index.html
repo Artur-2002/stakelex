@@ -1,0 +1,600 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+	<title>Document</title>
+  <link rel="stylesheet" href="{% static 'plugins/flag-icon-css/css/flag-icon.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
+  <!-- Theme style -->
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.css' %}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'plugins/jsgrid/jsgrid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="{% static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css' %}">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{% static 'plugins/select2/css/select2.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css' %}">
+  <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="{% static 'plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css' %}">
+  <!-- BS Stepper -->
+  <link rel="stylesheet" href="{% static 'plugins/bs-stepper/css/bs-stepper.min.css' %}">
+  <!-- dropzonejs -->
+  <link rel="stylesheet" href="{% static 'plugins/dropzone/min/dropzone.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+</head>
+<!-- <body style="background-color: #f8f9fa !important"> -->
+<!-- <body style="background: url('{% static 'img/bg1.webp' %}');"> -->
+<body style="background-color: #f5f5f5">
+<script>
+  function redirect() {
+      var ref = document.getElementsByClassName("select2-selection__rendered")[0].innerHTML
+
+      if (ref == "Все виды кредитования") {
+        ref = "all";
+      }
+
+      document.location.href = "/start/"  + ref + "/";
+  }
+</script>
+<style>
+  @media (max-width: 850px) {
+    .my_link {
+      display: none;
+    }
+
+    .my-block {
+      margin-top: 15px !important;
+    }
+
+    .my-p {
+      white-space: normal !important;
+    }
+
+    .my-a {
+      display: block !important;
+    }
+
+    .navbar-text {
+      display: none !important;
+    }
+
+    .special {
+      margin-left: 0 !important;
+    }
+
+  }
+</style>
+<nav style="background-color: #f8f9fa !important; height: 60px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3" style="margin-top: 15px;">
+        <a class="navbar-brand" href="/start/" style="color: black; margin-top: -5px">Navbar</a>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-2">
+      </div>
+      <div class="col-2">
+      </div>
+      <div class="col-2" style="margin-top: 17px;">
+        <a href="/login/" style="color: black"><span style="padding-right: 5px"><i class="fas fa-sign-out-alt"></i></span><span class="my_link">Авторизация</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active my-a" href="#" style="display: none;"><i class="far fa-comments" style="padding-right: 3px"></i>Обратная связь</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active my-a" href="/login/" style="display: none;"><i class="fas fa-sign-out-alt" style="padding-right: 3px;"></i>Авторизация</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <a class="nav-link active" href="#"><i class="far fa-comments" style="padding-right: 3px"></i>Обратная связь</a>
+      </span>
+      <span class="navbar-text">
+        <a class="nav-link active" href="/login/"><i class="fas fa-sign-out-alt" style="padding-right: 3px;"></i>Авторизация</a>
+      </span>
+    </div>
+  </div>
+</nav> -->
+<br>
+<div class="container-fluid" style="margin-top: -25px">
+  <div class="row">
+<!-- 	<div class="row" style="background: url('{% static 'img/bg1.webp' %}');"> -->
+		<div class="col-12">
+			<div class="row">
+				<div class="col-12" style="margin-top: 35px;">
+					<h2 class="text-center" style="white-space: pre-line;">{{heading.text}}</h2>
+				</div>
+			</div>
+				<br>
+			<div class="row">
+				<div class="col-sm-0 col-md-2 col-lg-2"></div>
+				<div class="col-sm-12 col-md-8 col-lg-8">
+					<div class="row">
+						<div class="col-12">
+							<p class="text-center" style="white-space: pre-line;">
+                {{extra_text.text}}
+							</p>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm-0 col-md-0 col-lg-2"></div>
+						<div class="col-sm-12 col-md-12 col-lg-8">
+							<div class="row">
+								<div class="col-sm-12 col-md-12 col-lg-6 text-center">
+									<select class="form-control select2" style="width: 100%;">
+										<option {% if credit_type == None or credit_type == "all" %}selected="selected"{% endif %}>Займы</option>
+										{% for credit_type1 in credit_types %}
+										<option {% if credit_type == credit_type1 %}selected="selected"{% endif %}>{{credit_type1}}</option>
+										{% endfor %}
+									</select>
+								</div>
+                <br>
+                <br>
+								<div class="col-sm-12 col-md-12 col-lg-6 text-center">
+									<a href="javascript: redirect();">
+										<input style="width: 100%" type="submit" class="btn btn-success float-left bg-teal" value="Начать поиск" name="submit" />
+									</a>
+								</div>
+							</div>
+              <br>
+						</div>
+						<div class="col-sm-0 col-md-12 col-lg-2"></div>
+					</div>
+				</div>
+				<div class="col-sm-0 col-md-12 col-lg-2"></div>
+			</div>			
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row">
+		{% for bank in banks %}
+    {% if bank.is_active == True%}
+        <div class="modal fade" id="modal-default{{forloop.counter}}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">{{bank.name}}</h4>
+              </div>
+              <div class="modal-body">
+                <p style="white-space: pre-line;">{{bank.description}}</p>
+              </div>
+              <div class="modal-footer justify-content-between">
+                <a href="{{bank.link}}"><button type="submit" class="btn btn-primary bg-teal" style="border: none;">Подать заявку</button></a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    <div class="col-1" style="margin-bottom: 30px;"></div>
+    {% if bank.frame == 'Нет' or bank.frame == '0' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid white;">
+    {% elif bank.frame == 'Зеленая' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid green;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: green; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Красная' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid red;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: red; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Синяя' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid #0066CC;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: #0066CC; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Светло-оранжевая' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid #FF9933;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: #FF9933; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Ярко-красная' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid #FF3300;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: #FF3300; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Сиреневая' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid #6666FF;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: #6666FF; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Светло-фиолетовый' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid #9999CC;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: #9999CC; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Салатовая' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid #66CC33;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: #66CC33; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Светло-серая' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid #CCCCCC;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: #CCCCCC; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Бледно-голубая' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid #6699CC;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: #6699CC; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% elif bank.frame == 'Голубая' %}
+    <div class="col-10" style="border-radius: 6px; box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2); background: white; margin-bottom: 30px; border: 2px solid #6699FF;">
+      {% if bank.special_offer %}
+      <div class="special" style="text-align: center; float: left; margin-top: -15px; margin-left: 40px; position: absolute;">
+        <div style="background-color: #6699FF; border-radius: 3px;">
+          <p style="padding:0px 10px 3px 10px; color: white">{{bank.special_offer}}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% endif %}
+      <div class="container-fluid">
+        <div class="row" style="margin-top: 30px; margin-bottom: 30px;">
+          <div class="col-lg-3 col-md-3 col-sm-12 text-center">
+            {% if bank.photo %}
+            <img src="{{bank.photo.url}}" alt="bank-logo" class="img-square img-fluid" style="height: 120px; width: auto; margin-top: -10px;">
+            {% endif %}
+            <h3 style="padding-top: 5px;">{{bank.name}}</h3>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 text-center my-block" style="margin-top: 40px;">
+            <div class="row">
+              {% if bank.line4 == None or bank.line4 == "" %}
+              <div class="col-lg-4 col-md-4 col-sm-12">
+                <p style="white-space: pre-line;" class="my-p">{{bank.line1}}</p>
+                {% if bank.product_photo.url != None %}
+                <img src="{{bank.product_photo.url}}" alt="" style="height: 120px; width: auto; padding-bottom: 10px" class="text-center">
+                {% endif %}
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12">
+                <p style="white-space: pre-line;" class="my-p">{{bank.line2}}</p>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12">
+                <p style="white-space: pre-line;" class="my-p">{{bank.line3}}</p>
+              </div>
+              {% else %}
+              <div class="col-lg-3 col-md-3 col-sm-12">
+                <p style="white-space: pre-line;" class="my-p">{{bank.line1}}</p>
+                {% if bank.product_photo.url != None %}
+                <img src="{{bank.product_photo.url}}" alt="" style="height: 120px; width: auto; padding-bottom: 10px" class="text-center">
+                {% endif %}
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12">
+                <p style="white-space: pre-line;" class="my-p">{{bank.line2}}</p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12">
+                <p style="white-space: pre-line;" class="my-p">{{bank.line3}}</p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12">
+                <p style="white-space: pre-line;" class="my-p">{{bank.line4}}</p>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12 text-center my-block" style="margin-top: 45px;">
+              <a href="{{bank.link}}" class="btn btn-sm bg-teal" target="blank" style="width: 100%">
+                Подать заявку
+              </a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-2"></div>
+          <div class="col-lg-4 col-md-4 col-sm-8 text-center" style="padding-top: 20px;">
+             <a href="#" data-toggle="modal" data-target="#modal-default{{forloop.counter}}">
+                Подробные условия
+              </a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1" style="margin-bottom: 30px;"></div>
+    {% endif %}
+		{% endfor %}
+	</div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+ 
+<script type="text/javascript">
+ 
+$(function() {
+ 
+$(window).scroll(function() {
+ 
+if($(this).scrollTop() != 0) {
+ 
+$('#toTop').fadeIn();
+ 
+} else {
+ 
+$('#toTop').fadeOut();
+ 
+}
+ 
+});
+ 
+$('#toTop').click(function() {
+ 
+$('body,html').animate({scrollTop:0},150);
+ 
+});
+ 
+});
+ 
+</script>
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE -->
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
+<script src="{% static 'dist/js/demo.js' %}"></script>
+<script src="{% static 'dist/js/pages/dashboard3.js' %}"></script>
+<script src="{% static 'plugins/bs-custom-file-input/bs-custom-file-input.min.js' %}"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+<script src="{% static 'plugins/select2/js/select2.full.min.js' %}"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="{% static 'plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js' %}"></script>
+<!-- InputMask -->
+<script src="{% static 'plugins/moment/moment.min.js' %}"></script>
+<script src="{% static 'plugins/inputmask/jquery.inputmask.min.js' %}"></script>
+<!-- date-range-picker -->
+<script src="{% static 'plugins/daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js' %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<!-- Bootstrap Switch -->
+<script src="{% static 'plugins/bootstrap-switch/js/bootstrap-switch.min.js' %}"></script>
+<!-- BS-Stepper -->
+<script src="{% static 'plugins/bs-stepper/js/bs-stepper.min.js' %}"></script>
+<!-- dropzonejs -->
+<script src="{% static 'plugins/dropzone/min/dropzone.min.js' %}"></script>
+<script src="{% static 'dist/js/adminlte.js' %}"></script>
+<script src="{% static 'dist/js/demo.js' %}"></script>
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+
+    //Bootstrap Duallistbox
+    $('.duallistbox').bootstrapDualListbox()
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    });
+
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+  })
+  // BS-Stepper Init
+  document.addEventListener('DOMContentLoaded', function () {
+    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+  });
+
+  // DropzoneJS Demo Code Start
+  Dropzone.autoDiscover = false;
+
+  // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+  var previewNode = document.querySelector("#template");
+  previewNode.id = "";
+  var previewTemplate = previewNode.parentNode.innerHTML;
+  previewNode.parentNode.removeChild(previewNode);
+
+  var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+    url: "/target-url", // Set the url
+    thumbnailWidth: 80,
+    thumbnailHeight: 80,
+    parallelUploads: 20,
+    previewTemplate: previewTemplate,
+    autoQueue: false, // Make sure the files aren't queued until manually added
+    previewsContainer: "#previews", // Define the container to display the previews
+    clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+  });
+
+  myDropzone.on("addedfile", function(file) {
+    // Hookup the start button
+    file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file); };
+  });
+
+  // Update the total progress bar
+  myDropzone.on("totaluploadprogress", function(progress) {
+    document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
+  });
+
+  myDropzone.on("sending", function(file) {
+    // Show the total progress bar when upload starts
+    document.querySelector("#total-progress").style.opacity = "1";
+    // And disable the start button
+    file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
+  });
+
+  // Hide the total progress bar when nothing's uploading anymore
+  myDropzone.on("queuecomplete", function(progress) {
+    document.querySelector("#total-progress").style.opacity = "0";
+  });
+
+  // Setup the buttons for all transfers
+  // The "add files" button doesn't need to be setup because the config
+  // `clickable` has already been specified.
+  document.querySelector("#actions .start").onclick = function() {
+    myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
+  };
+  document.querySelector("#actions .cancel").onclick = function() {
+    myDropzone.removeAllFiles(true);
+  };
+  // DropzoneJS Demo Code End
+</script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<style>
+	#toTop {
+	width: 70px;
+	border:1px solid #ccc;
+	background:#f7f7f7;
+	text-align:center;
+	padding:5px;
+	position:fixed;
+	bottom:10px;
+	right:30px;
+	cursor:pointer;
+	display:none;
+	color:#333;
+	font-family:verdana;
+	font-size:11px;
+	}
+</style>
+<style>
+    .select2-search--dropdown {
+      display: none !important;
+    }
+
+    .select2-search {
+      display: none !important;
+    }
+
+    .select2-search__field {
+      display: none !important;
+    }
+</style>
+<br>
+<footer id="footer" class="footer" style="background-color: #f8f9fa !important; min-height: 80px;"><!--Footer-->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <p class="text-center"><strong>© STAKELEX, 2021 Copyright</strong></p>
+            </div>
+        </div>
+    </div>
+</footer><!--/Footer-->
+<div id="toTop"><img src="{% static 'img/up.png' %}" alt="" style="width: 100%; height: auto;"></div>
+</body>
+</html>
