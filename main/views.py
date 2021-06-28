@@ -121,9 +121,9 @@ def user_register(request, link=None):
 					profile = Profile.objects.create(user=user, email=cd['email'])
 					profile.save()
 
-				fromaddr = "artur-2002s@mail.ru"
+				fromaddr = "*****"
 				toaddr = cd['email']
-				mypass = 'alla255265'
+				mypass = '*****'
 				msg = MIMEMultipart()
 				msg['From'] = formataddr((str(Header('STAKELEX', 'utf-8')), fromaddr))
 				msg['To'] = toaddr
@@ -162,9 +162,9 @@ def reset_password(request):
 				user.set_password(password)
 				user.save()
 
-				fromaddr = "artur-2002s@mail.ru"
+				fromaddr = "****"
 				toaddr = cd['email']
-				mypass = 'alla255265'
+				mypass = '****'
 				msg = MIMEMultipart()
 				msg['From'] = formataddr((str(Header('STAKELEX', 'utf-8')), fromaddr))
 				msg['To'] = toaddr
@@ -229,9 +229,9 @@ def profile(request):
 
 				except:
 					code = ''.join(random.choice(string.digits + string.ascii_letters) for i in range(5))
-					fromaddr = "artur-2002s@mail.ru"
+					fromaddr = "****"
 					toaddr = cd['email']
-					mypass = 'alla255265'
+					mypass = '****'
 					msg = MIMEMultipart()
 					msg['From'] = formataddr((str(Header('STAKELEX', 'utf-8')), fromaddr))
 					msg['To'] = toaddr
